@@ -1,0 +1,6 @@
+﻿services:
+  airbelgie.web:
+    image: airbelgie.web
+    build:
+      context: .
+      dockerfile: AirBelgie.Web/Dockerfile
