@@ -1,6 +1,16 @@
 ﻿services:
+  airbelgie.db:
+    image: postgis/postgis:17-3.5
+    environment:
+      POSTGRES_DB: airbelgie
+      POSTGRES_USER: airbelgie
+      POSTGRES_PASSWORD: airbelgie
+    ports:
+      - "5432:5432"
   airbelgie.web:
     image: airbelgie.web
     build:
       context: .
       dockerfile: AirBelgie.Web/Dockerfile
+    ports:
+        - "8080:8080"
