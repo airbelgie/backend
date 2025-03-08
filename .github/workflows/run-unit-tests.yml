@@ -1,8 +1,9 @@
 ﻿name: Run Unit Tests
 on:
-  pull_request: null
+  pull_request:
+    branches: [master]
   push:
-    branches: [main]
+    branches: [master]
   
 
 jobs:
