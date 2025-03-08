@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  airbelgie.web:
+    build:
+      context: "/Users/rparkar/RiderProjects/AirBelgie"
+      dockerfile: "AirBelgie.Web/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/AirBelgie.Web.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "airbelgie.web:dev"
+    ports: []
+    volumes:
+    - "/Users/rparkar/RiderProjects/AirBelgie/AirBelgie.Web:/app:rw"
+    - "/Users/rparkar/RiderProjects/AirBelgie:/src:rw"
+    - "/Users/rparkar/.nuget/packages:/home/app/.nuget/packages"
+    working_dir: "/app"
