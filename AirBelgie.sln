@@ -1,5 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBelgie.Web", "AirBelgie.Web\AirBelgie.Web.csproj", "{F6FCF327-339D-4BB3-A6A0-27DB2F2D9DC3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1A2ADEEF-B437-4B74-A2B0-F7A8D53474D7}"
@@ -12,6 +15,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBelgie.Service", "AirBelgie.Service\AirBelgie.Service.csproj", "{1BECCF59-E62C-485C-8BD3-CFCB61315B15}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBelgie.Model", "AirBelgie.Model\AirBelgie.Model.csproj", "{E6D0FF2E-D970-4360-B90D-023FADFB3529}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBelgie.Migrations", "AirBelgie.Migrations\AirBelgie.Migrations.csproj", "{8EA076BD-1755-482C-8B0A-890C13973FBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,5 +40,15 @@ Global
 		{E6D0FF2E-D970-4360-B90D-023FADFB3529}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6D0FF2E-D970-4360-B90D-023FADFB3529}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6D0FF2E-D970-4360-B90D-023FADFB3529}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EA076BD-1755-482C-8B0A-890C13973FBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EA076BD-1755-482C-8B0A-890C13973FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EA076BD-1755-482C-8B0A-890C13973FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EA076BD-1755-482C-8B0A-890C13973FBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {199D5019-F393-4737-8BA0-C10D779F3FA4}
 	EndGlobalSection
 EndGlobal
