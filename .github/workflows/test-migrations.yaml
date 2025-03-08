@@ -1,0 +1,36 @@
+﻿name: Test Migrations
+
+on:
+  push:
+    paths:
+      - 'AirBelgie.Migrations/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_DB: airbelgie
+          POSTGRES_USER: airbelgie
+          POSTGRES_PASSWORD: airbelgie
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - '5432:5432'
+    
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - name: Run migrations
+        env:
+          DB_CONNECTION_STRING: "Server=localhost;Port=5432;Database=airbelgie;User Id=airbelgie;Password=airbelgie;"
+        run: dotnet run --project AirBelgie.Migrations
