@@ -3,3 +3,6 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
+/AirBelgie.sln.DotSettings.user
+/.idea/.idea.AirBelgie/Docker/compose.generated.override.yml
+/.env
