@@ -1,5 +1,6 @@
 using Dapper;
 using Npgsql;
+using Microsoft.Extensions.Options;
 
 namespace AirBelgie.Data;
 
@@ -8,13 +9,15 @@ public class TestData
     public string CurrentSchema { get; set; }
 }
 
-public class TestRepository
+public class TestRepository : ITestRepository
 {
-    private NpgsqlConnection _connection;
+    private readonly NpgsqlConnection _connection;
+    private DbSettings _dbSettings;
 
-    public TestRepository()
+    public TestRepository(IOptions<DbSettings> dbSettings)
     {
-        _connection = new NpgsqlConnection("Server=localhost;User Id=airbelgie;Password=airbelgie;");
+        _dbSettings = dbSettings.Value;
+        _connection = new NpgsqlConnection($"Server={_dbSettings.Server};Port={_dbSettings.Port};Database={_dbSettings.Database};User ID={_dbSettings.User};Password={_dbSettings.Password};");
         _connection.Open();
     }
     

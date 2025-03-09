@@ -8,18 +8,18 @@ namespace AirBelgie.Web.Controllers;
 public class TestController
 {
     private readonly ILogger<TestController> _logger;
+    private readonly ITestRepository _repository;
     
-    public TestController(ILogger<TestController> logger)
+    public TestController(ILogger<TestController> logger, ITestRepository repository)
     {
         _logger = logger;
+        _repository = repository;
     }
     
     [HttpGet(Name = "GetTest")]
     public string Get()
     {
-        TestRepository repository = new TestRepository();
-
-        TestData schema = repository.GetSchema();
+        TestData schema = _repository.GetSchema();
         
         return schema.CurrentSchema;
     }

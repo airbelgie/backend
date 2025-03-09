@@ -9,6 +9,12 @@
       - "5432:5432"
   airbelgie.web:
     image: airbelgie.web
+    environment:
+      AirBelgie_DbSettings__Server: airbelgie.db
+      AirBelgie_DbSettings__Port: "5432"
+      AirBelgie_DbSettings__Database: airbelgie
+      AirBelgie_DbSettings__User: airbelgie
+      AirBelgie_DbSettings__Password: airbelgie
     build:
       context: .
       dockerfile: AirBelgie.Web/Dockerfile
