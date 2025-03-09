@@ -16,7 +16,7 @@ public class DatabaseContext
     public IDbConnection CreateConnection()
     {
         var connectionString =
-            $"Host={_dbSettings.Server}; Database={_dbSettings.Database}; Username={_dbSettings.User}; Password={_dbSettings.Password};";
+            $"Host={_dbSettings.Server}; Database={_dbSettings.Database}; Username={_dbSettings.User}; Password={_dbSettings.Password}; Port={_dbSettings.Port};";
         return new NpgsqlConnection(connectionString);
     }
 }
