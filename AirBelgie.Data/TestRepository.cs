@@ -17,7 +17,7 @@ public class TestRepository : ITestRepository
     public TestRepository(IOptions<DbSettings> dbSettings)
     {
         _dbSettings = dbSettings.Value;
-        _connection = new NpgsqlConnection($"Server={_dbSettings.Server};Database={_dbSettings.Database};User ID={_dbSettings.User};Password={_dbSettings.Password};");
+        _connection = new NpgsqlConnection($"Server={_dbSettings.Server};Port={_dbSettings.Port};Database={_dbSettings.Database};User ID={_dbSettings.User};Password={_dbSettings.Password};");
         _connection.Open();
     }
     
