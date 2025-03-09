@@ -1,6 +1,4 @@
-﻿using Xunit;
-
-namespace AirBelgie.Tests;
+﻿namespace AirBelgie.Tests;
 
 public class DemoTest
 {

@@ -22,4 +22,9 @@
       <ProjectReference Include="..\AirBelgie.Service\AirBelgie.Service.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <InternalsVisibleTo Include="AirBelgie.Tests" />
+    </ItemGroup>
+
+
 </Project>
