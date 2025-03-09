@@ -1,6 +1,5 @@
+using System.Data;
 using Dapper;
-using Npgsql;
-using Microsoft.Extensions.Options;
 
 namespace AirBelgie.Data;
 
@@ -11,21 +10,20 @@ public class TestData
 
 public class TestRepository : ITestRepository
 {
-    private readonly NpgsqlConnection _connection;
-    private DbSettings _dbSettings;
+    private readonly DatabaseContext _dbContext;
 
-    public TestRepository(IOptions<DbSettings> dbSettings)
+    public TestRepository(DatabaseContext dbContext)
     {
-        _dbSettings = dbSettings.Value;
-        _connection = new NpgsqlConnection($"Server={_dbSettings.Server};Database={_dbSettings.Database};User ID={_dbSettings.User};Password={_dbSettings.Password};");
-        _connection.Open();
+        _dbContext = dbContext;
     }
     
     public TestData GetSchema()
     {
         string sqlQuery = "SELECT current_schema()";
+
+        using IDbConnection connection = _dbContext.CreateConnection();
         
-        var schema = _connection.QueryFirst<TestData>(sqlQuery);
+        var schema = connection.QueryFirst<TestData>(sqlQuery);
         return schema;
     }
 }

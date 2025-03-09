@@ -1,4 +1,5 @@
 using AirBelgie.Data;
+using AirBelgie.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +9,15 @@ builder.Configuration.AddEnvironmentVariables(prefix: "AirBelgie_");
 // configure strongly typed settings object
 builder.Services.Configure<DbSettings>(builder.Configuration.GetSection("DbSettings"));
 
-// Add services to the container.
+// Configure DI for application services
+builder.Services.AddSingleton<DatabaseContext>();
+
+// Configure DI for repositories
 builder.Services.AddScoped<ITestRepository, TestRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+// Configure DI for services
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

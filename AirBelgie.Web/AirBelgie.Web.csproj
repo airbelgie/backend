@@ -19,6 +19,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\AirBelgie.Data\AirBelgie.Data.csproj" />
+      <ProjectReference Include="..\AirBelgie.Service\AirBelgie.Service.csproj" />
     </ItemGroup>
 
 </Project>
