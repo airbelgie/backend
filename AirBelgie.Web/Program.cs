@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddEnvironmentVariables(prefix: "AirBelgie_");
 
 // configure strongly typed settings object
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 builder.Services.Configure<DbSettings>(builder.Configuration.GetSection("DbSettings"));
 
 // Configure DI for application services
@@ -18,7 +19,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Configure DI for services
 builder.Services.AddScoped<IUserService, UserService>();
-
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
