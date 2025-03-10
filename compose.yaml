@@ -9,6 +9,9 @@
       - "5432:5432"
   airbelgie.web:
     image: airbelgie.web
+    env_file:
+      - path: ./.env
+        required: true
     environment:
       AirBelgie_DbSettings__Server: airbelgie.db
       AirBelgie_DbSettings__Port: "5432"
