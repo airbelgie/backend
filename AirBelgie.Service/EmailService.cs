@@ -21,11 +21,10 @@ public class EmailService : IEmailService
         
         SendSmtpEmailSender sender = new SendSmtpEmailSender("Air Belgie", "noreply@airbelgie.com");
         SendSmtpEmailTo toAddress = new SendSmtpEmailTo(toEmail, toName);
-        List<SendSmtpEmailTo> toAddresses =
-        [
+        List<SendSmtpEmailTo> toAddresses = new List<SendSmtpEmailTo>
+        {
             toAddress
-        ];
-        
+        };
         try
         {
             SendSmtpEmail sendSmtpEmail = new SendSmtpEmail(sender: sender, to: toAddresses, subject: subject, htmlContent: htmlContent, textContent: textContent);
