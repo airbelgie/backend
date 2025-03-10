@@ -3,6 +3,9 @@ using AirBelgie.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add Sentry
+builder.WebHost.UseSentry();
+
 // Add environment variables to configuration
 builder.Configuration.AddEnvironmentVariables(prefix: "AirBelgie_");
 
