@@ -11,4 +11,8 @@
       <ProjectReference Include="..\AirBelgie.Model\AirBelgie.Model.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="brevo_csharp" Version="1.0.0" />
+    </ItemGroup>
+
 </Project>
