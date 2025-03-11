@@ -22,6 +22,13 @@ public class TestController
     [HttpGet(Name = "GetTest")]
     public string Get()
     {
+        _logger.LogTrace("Trace"); // Not outputted in Console
+        _logger.LogDebug("Debug"); // Not outputted in Console
+        _logger.LogInformation("Information"); // Not Outputted in Sentry
+        _logger.LogWarning("Warning"); // Not Outputted in Sentry
+        _logger.LogError("Error"); // Sentry and Console
+        _logger.LogCritical("Critical"); // Sentry and Console
+        throw new NotImplementedException();
         TestData schema = _repository.GetSchema();
         
         return schema.CurrentSchema;
