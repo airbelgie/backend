@@ -5,7 +5,7 @@ namespace AirBelgie.Data;
 
 public class TestData
 {
-    public string CurrentSchema { get; set; }
+    public required string CurrentSchema { get; set; }
 }
 
 public class TestRepository : ITestRepository
@@ -21,9 +21,7 @@ public class TestRepository : ITestRepository
     {
         string sqlQuery = "SELECT current_schema()";
 
-        using IDbConnection connection = _dbContext.CreateConnection();
-        
-        var schema = connection.QueryFirst<TestData>(sqlQuery);
+        var schema = _dbContext.CreateConnection().QueryFirst<TestData>(sqlQuery);
         return schema;
     }
 }

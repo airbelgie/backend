@@ -6,3 +6,5 @@ CREATE TABLE public.users (
     CONSTRAINT users_pk PRIMARY KEY (id),
     CONSTRAINT users_unique UNIQUE (username)
 );
+
+CREATE UNIQUE INDEX users_username_idx ON public.users (username);
