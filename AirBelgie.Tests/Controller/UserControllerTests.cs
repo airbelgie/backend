@@ -12,7 +12,7 @@ public class UserControllerTests
         using HttpClient client = application.CreateClient();
         
         // Act
-        var response = await client.GetAsync("/user/1");
+        var response = await client.GetAsync("/user/b8c8637b-acd4-4f68-9b06-0c0904737568");
         
         // Assert
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);

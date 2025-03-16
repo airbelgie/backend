@@ -10,18 +10,18 @@ public class TestData
 
 public class TestRepository : ITestRepository
 {
-    private readonly IDbConnection _dbConnection;
+    private readonly DatabaseContext _dbContext;
 
-    public TestRepository(IDbConnection dbConnection)
+    public TestRepository(DatabaseContext dbContext)
     {
-        _dbConnection = dbConnection;
+        _dbContext = dbContext;
     }
     
     public TestData GetSchema()
     {
         string sqlQuery = "SELECT current_schema()";
 
-        var schema = _dbConnection.QueryFirst<TestData>(sqlQuery);
+        var schema = _dbContext.CreateConnection().QueryFirst<TestData>(sqlQuery);
         return schema;
     }
 }

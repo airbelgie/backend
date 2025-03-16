@@ -6,11 +6,11 @@ namespace AirBelgie.Data;
 
 public class KeyValRepository : IKeyValRepository
 {
-    private readonly IDbConnection _dbConnection;
+    private readonly DatabaseContext _dbContext;
     
-    public KeyValRepository(IDbConnection dbConnection)
+    public KeyValRepository(DatabaseContext dbContext)
     {
-        _dbConnection = dbConnection;
+        _dbContext = dbContext;
     }
     
     public async Task<int> CreateOrUpdateKeyValAsync<T>(string key, T value)
@@ -21,7 +21,7 @@ public class KeyValRepository : IKeyValRepository
             ON CONFLICT (key) DO UPDATE
             SET value = @value";
         string valueString = JsonSerializer.Serialize(value);
-        int result = await _dbConnection.ExecuteAsync(sqlQuery, new { key, valueString });
+        int result = await _dbContext.CreateConnection().ExecuteAsync(sqlQuery, new { key, valueString });
         
         return result;
     }
@@ -29,7 +29,7 @@ public class KeyValRepository : IKeyValRepository
     public async Task<T?> GetKeyValAsync<T>(string key)
     {
         string sqlQuery = "SELECT value FROM keyval WHERE key = @key";
-        string? valueString = await _dbConnection.QuerySingleOrDefaultAsync<string>(sqlQuery, new { key });
+        string? valueString = await _dbContext.CreateConnection().QuerySingleOrDefaultAsync<string>(sqlQuery, new { key });
             
         return valueString is not null ? JsonSerializer.Deserialize<T>(valueString) : default;
     }
@@ -38,6 +38,6 @@ public class KeyValRepository : IKeyValRepository
     {
         string sqlQuery = "DELETE FROM keyval WHERE key = @key";
         
-        return await _dbConnection.ExecuteAsync(sqlQuery, new { key }) > 0;
+        return await _dbContext.CreateConnection().ExecuteAsync(sqlQuery, new { key }) > 0;
     }
 }
