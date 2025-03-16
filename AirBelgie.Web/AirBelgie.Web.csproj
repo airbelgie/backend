@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.3" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.2" />
         <PackageReference Include="Sentry.AspNetCore" Version="5.3.0" />
     </ItemGroup>
@@ -21,6 +22,7 @@
     <ItemGroup>
       <ProjectReference Include="..\AirBelgie.Data\AirBelgie.Data.csproj" />
       <ProjectReference Include="..\AirBelgie.Service\AirBelgie.Service.csproj" />
+      <ProjectReference Include="..\AirBelgie.Shared\AirBelgie.Shared.csproj" />
     </ItemGroup>
 
     <ItemGroup>

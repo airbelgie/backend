@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBelgie.Migrations", "Air
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBelgie.Tests", "AirBelgie.Tests\AirBelgie.Tests.csproj", "{C119ED65-E21E-4DAC-A9DF-7FA5C920E4D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBelgie.Shared", "AirBelgie.Shared\AirBelgie.Shared.csproj", "{CCBB7736-94B4-43F9-8BC9-F4369B304463}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{C119ED65-E21E-4DAC-A9DF-7FA5C920E4D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C119ED65-E21E-4DAC-A9DF-7FA5C920E4D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C119ED65-E21E-4DAC-A9DF-7FA5C920E4D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCBB7736-94B4-43F9-8BC9-F4369B304463}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCBB7736-94B4-43F9-8BC9-F4369B304463}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCBB7736-94B4-43F9-8BC9-F4369B304463}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCBB7736-94B4-43F9-8BC9-F4369B304463}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

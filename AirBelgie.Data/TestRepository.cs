@@ -5,25 +5,23 @@ namespace AirBelgie.Data;
 
 public class TestData
 {
-    public string CurrentSchema { get; set; }
+    public required string CurrentSchema { get; set; }
 }
 
 public class TestRepository : ITestRepository
 {
-    private readonly DatabaseContext _dbContext;
+    private readonly IDbConnection _dbConnection;
 
-    public TestRepository(DatabaseContext dbContext)
+    public TestRepository(IDbConnection dbConnection)
     {
-        _dbContext = dbContext;
+        _dbConnection = dbConnection;
     }
     
     public TestData GetSchema()
     {
         string sqlQuery = "SELECT current_schema()";
 
-        using IDbConnection connection = _dbContext.CreateConnection();
-        
-        var schema = connection.QueryFirst<TestData>(sqlQuery);
+        var schema = _dbConnection.QueryFirst<TestData>(sqlQuery);
         return schema;
     }
 }
